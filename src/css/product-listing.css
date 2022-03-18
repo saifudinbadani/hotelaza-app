@@ -1,0 +1,19 @@
+@import "../common.css";
+
+.main-aside-wrapper{
+    grid-template-columns: 1fr 6fr;
+    grid-template-areas: "side main";
+    margin-top: 6rem;
+}
+
+.sidebar-container{
+    grid-area: side;
+}
+
+.products-listing-container{
+    grid-area: main;
+}
+
+.products-card-container{
+    flex-wrap: wrap;
+}

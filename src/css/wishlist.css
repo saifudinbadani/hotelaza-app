@@ -1,0 +1,6 @@
+@import "../common.css";
+
+.wishlist-container{
+    margin-top: 6rem;
+    grid-template-columns: repeat(5, 1fr);
+}
