@@ -3,11 +3,14 @@ import { HomePageCategories, HomePageCards, HomePageHero } from '../components/H
 
 
 const HomePage = () => {
-    return <div class="home-page-body bg-clr">
-        <HomePageCategories />
+
+    return <>
+      <HomePageCategories />
       <HomePageHero />
       <HomePageCards />
-    </div>
+    </>
+    
+    
 }
 
 export { HomePage }
