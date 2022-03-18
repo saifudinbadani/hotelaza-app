@@ -1,7 +1,6 @@
 import '../css/home-page.css';
-import { HomePageCategories } from '../components/Homepage/Homepage-categories';
-import { HomePageHero } from '../components/Homepage/Homepage-main-hero';
-import { HomePageCards } from '../components/Homepage/Homepage-cards';
+import { HomePageCategories, HomePageCards, HomePageHero } from '../components/Homepage/';
+
 
 const HomePage = () => {
     return <div class="home-page-body bg-clr">
