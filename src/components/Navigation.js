@@ -1,8 +1,7 @@
 import '../css/nav.css';
 
 const Navigation = () => {
-    return <header class="header">
-    <nav class="nav-container display-flex primary-clr p-rl-6">
+    return  <nav class="nav-container display-flex primary-clr p-rl-6">
         <a href="./index.html" class="nav-link font-size-2pt6">
             Hotelaza
         </a>
@@ -20,7 +19,7 @@ const Navigation = () => {
             <i class="fas fa-shopping-cart font-size-2pt6"></i>
         </a>
     </nav>
-</header>
+
 }
 
 export { Navigation }
