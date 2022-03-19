@@ -1,0 +1,46 @@
+
+.home-page-body{
+    min-height: 100vh;
+}
+
+
+
+.resp-img{
+    padding-left: 6rem;
+}
+.resp-img > img{
+    max-width: 1315px;
+    max-height: 500px;
+}
+ 
+
+.homepage-img > img {
+    border-radius: 7px;
+}
+/* home-page categories */
+.homepage-cat{
+    justify-content: space-between;
+}
+.cat-img{
+    max-width: 240px;
+    max-height: 147px;
+    border-radius: 4px;
+}
+
+.cat-name{
+    text-align: center;
+    background-color: var(--bg-clr);
+    width: 240px;
+    top: 50%;
+}
+
+/* cards */
+
+.homepage-cards{
+    grid-area: card;
+    justify-content: space-between;
+}
+
+.homepage-footer{
+    grid-area: footer;
+}
