@@ -1,11 +1,10 @@
 import "./App.css";
-import { HomePage } from './components/Homepage';
-import { Navigation } from './components/Navigation';
+import { HomePage } from './pages/Homepage';
+
 
 function App() {
   return (
-    <div className="App home-page-body bg-clr">
-      <Navigation />
+    <div className="App">
       <HomePage />
     </div>
   );
