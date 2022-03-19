@@ -3,13 +3,21 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
+import { 
+  BrowserRouter as Router,
+  Routes,
+  Route } from "react-router-dom";
 
 // Call make Server
 makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Routes>
+        <Route path="/" element={<App />}/>
+      </Routes>
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );
