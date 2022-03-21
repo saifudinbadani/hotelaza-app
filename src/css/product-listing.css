@@ -16,3 +16,12 @@
 .products-card-container{
     flex-wrap: wrap;
 }
+
+.card-dismiss{
+    right: 1.5rem;
+    top: 0.5rem;
+}
+
+.card-author{
+    font-size: 1.2rem;
+}
