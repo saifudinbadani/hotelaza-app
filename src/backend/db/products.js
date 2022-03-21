@@ -15,6 +15,7 @@ export const products = [
     price: "850",
     discountedPrice: "800",
     categoryName: "dining",
+    starRating: 4
   },
   {
     _id: uuid(),
@@ -24,6 +25,7 @@ export const products = [
     price: "575",
     discountedPrice: "500",
     categoryName: "dining",
+    starRating: 3
   },
   {
     _id: uuid(),
@@ -33,6 +35,7 @@ export const products = [
     price: "410",
     discountedPrice: "370",
     categoryName: "dining",
+    starRating: 2
   },
   {
     _id: uuid(),
@@ -42,6 +45,7 @@ export const products = [
     price: "635",
     discountedPrice: "590",
     categoryName: "dining",
+    starRating: 1
   },
   {
     _id: uuid(),
@@ -51,6 +55,7 @@ export const products = [
     price: "380",
     discountedPrice: "350",
     categoryName: "dining",
+    starRating: 5
   },
   {
     _id: uuid(),
@@ -61,6 +66,7 @@ export const products = [
     price: "900",
     discountedPrice: "865",
     categoryName: "spa",
+    starRating: 5
   },
   {
     _id: uuid(),
@@ -71,6 +77,7 @@ export const products = [
     price: "1155",
     discountedPrice: "1050",
     categoryName: "spa",
+    starRating: 4
   },
   {
     _id: uuid(),
@@ -81,6 +88,7 @@ export const products = [
     price: "400",
     discountedPrice: "380",
     categoryName: "spa",
+    starRating: 3
   },
   {
     _id: uuid(),
@@ -91,6 +99,7 @@ export const products = [
     price: "290",
     discountedPrice: "290",
     categoryName: "spa",
+    starRating: 2
   },
   {
     _id: uuid(),
@@ -101,6 +110,7 @@ export const products = [
     price: "1355",
     discountedPrice: "1300",
     categoryName: "spa",
+    starRating: 1
   },
   {
     _id: uuid(),
@@ -111,6 +121,7 @@ export const products = [
     price: "2326",
     discountedPrice: "2100",
     categoryName: "holiday",
+    starRating: 5
   },
   {
     _id: uuid(),
@@ -121,6 +132,7 @@ export const products = [
     price: "4858",
     discountedPrice: "4750",
     categoryName: "holiday",
+    starRating: 4
   },
   {
     _id: uuid(),
@@ -131,6 +143,7 @@ export const products = [
     price: "1255",
     discountedPrice: "1200",
     categoryName: "holiday",
+    starRating: 3
   },
   {
     _id: uuid(),
@@ -141,6 +154,7 @@ export const products = [
     price: "1595",
     discountedPrice: "1530",
     categoryName: "holiday",
+    starRating: 2
   },
   {
     _id: uuid(),
@@ -151,6 +165,7 @@ export const products = [
     price: "1977",
     discountedPrice: "1977",
     categoryName: "holiday",
+    starRating: 1
   },
   {
     _id: uuid(),
@@ -161,6 +176,7 @@ export const products = [
     price: "989",
     discountedPrice: "970",
     categoryName: "rooms",
+    starRating: 3
   },
   {
     _id: uuid(),
@@ -171,6 +187,7 @@ export const products = [
     price: "1749",
     discountedPrice: "1710",
     categoryName: "rooms",
+    starRating: 4
   },
   {
     _id: uuid(),
@@ -181,6 +198,7 @@ export const products = [
     price: "1109",
     discountedPrice: "1080",
     categoryName: "rooms",
+    starRating: 4
   },
   {
     _id: uuid(),
@@ -191,6 +209,7 @@ export const products = [
     price: "2967",
     discountedPrice: "2932",
     categoryName: "rooms",
+    starRating: 5
   },
   {
     _id: uuid(),
@@ -201,5 +220,6 @@ export const products = [
     price: "898",
     discountedPrice: "856",
     categoryName: "rooms",
+    starRating: 2
   },
 ];
