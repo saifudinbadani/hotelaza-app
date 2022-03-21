@@ -15,6 +15,10 @@ const Product = () => {
                        <div class="card-img-h pos-rltv">
                              <img src={item.img} alt="Dining"/>
                              <i class="card-dismiss fa-regular fa-heart"></i>
+                             <div class="badge-container pos-absolute">
+                                 <span class="badge-primary">{item.starRating} <i class="fa-solid fa-star"></i>
+                                 </span>
+                             </div>
                          </div>
                          <div class="card-content-h display-flex-c">
                             <h3 class="card-title heading-4 fw-regular">{item.title}</h3>
