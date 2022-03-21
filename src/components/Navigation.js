@@ -8,7 +8,7 @@ const Navigation = () => {
             <i class="fa-solid fa-magnifying-glass pos-absolute font-size-2pt6"></i>
             <input type="text" placeholder="search" class="nav-input-search"/>
         </div>
-        <a href="./product-listing/product-listing.html" class="nav-link-cta">Shop Now</a>
+        <Link to='/productlist' class="nav-link-cta">Shop Now</Link>
         <a href="./login-signup/login.html" class="nav-link"><button
                 class="btn btn-solid-secondary">Login</button></a>
         <a href="./wishlist/wishlist.html" class="nav-link">

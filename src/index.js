@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import { HomePage, ProductListing  } from "./pages/index";
 import { makeServer } from "./server";
 import { 
   BrowserRouter as Router,
@@ -14,8 +15,10 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+      <App />
       <Routes>
-        <Route path="/" element={<App />}/>
+        <Route path="/" element={<HomePage/>}/>
+        <Route path="/productlist" element={<ProductListing />}/>
       </Routes>
     </Router>
   </React.StrictMode>,
