@@ -1,4 +1,4 @@
-@import "../common.css";
+
 
 .form {
     padding: 3rem 4rem; 
@@ -31,5 +31,9 @@
 .form-link{
     align-items: center;
     justify-content: center;
+}
+
+.fa-angle-right{
+    margin-left: 1rem;
 }
 

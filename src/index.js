@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import { HomePage, ProductListing  } from "./pages/index";
+import { HomePage, ProductListing, Login, Signup  } from "./pages/index";
 import { makeServer } from "./server";
 import { 
   BrowserRouter as Router,
@@ -21,6 +21,8 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<HomePage/>}/>
         <Route path="/productlist" element={<ProductListing />}/>
+        <Route path="/login" element={<Login />}/>
+        <Route path="/signup" element={<Signup />}/>
       </Routes>
       </FilterProvider>
     </Router>
