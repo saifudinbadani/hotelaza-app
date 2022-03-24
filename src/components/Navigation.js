@@ -9,8 +9,8 @@ const Navigation = () => {
             <input type="text" placeholder="search" class="nav-input-search"/>
         </div>
         <Link to='/productlist' class="nav-link-cta">Shop Now</Link>
-        <a href="./login-signup/login.html" class="nav-link"><button
-                class="btn btn-solid-secondary">Login</button></a>
+        <Link to='/login' class="nav-link"><button
+                class="btn btn-solid-secondary">Login</button></Link>
         <a href="./wishlist/wishlist.html" class="nav-link">
             <i class="fa-regular fa-heart font-size-2pt6"></i>
         </a>

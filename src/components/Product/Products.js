@@ -1,8 +1,14 @@
 import '../../css/product-listing.css';
-
 import { products } from '../../backend/db/products';
+import { useFilter } from '../../context/filterContext';
 
 const Product = () => {
+    const {state, categoryFn, ratingFilterFn, sortingFn} = useFilter();
+
+    const categoryFilteredData = categoryFn(state, products);
+    const ratingFilteredData = ratingFilterFn(state, categoryFilteredData)
+    const sortedData = sortingFn(state, ratingFilteredData)
+
     return <main class="products-listing-container p-rl-6">
     <h4 class="heading-4 m-t-1">
         Showing Products 
@@ -10,7 +16,7 @@ const Product = () => {
             products )</span>
     </h4>
     <div class="products-card-container display-flex">
-        {products.map(item => {
+        {sortedData.map(item => {
             return  <div class="card-h display-flex">
                        <div class="card-img-h pos-rltv">
                              <img src={item.img} alt="Dining"/>
