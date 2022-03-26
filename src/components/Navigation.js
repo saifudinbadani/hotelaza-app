@@ -11,12 +11,12 @@ const Navigation = () => {
         <Link to='/productlist' class="nav-link-cta">Shop Now</Link>
         <Link to='/login' class="nav-link"><button
                 class="btn btn-solid-secondary">Login</button></Link>
-        <a href="./wishlist/wishlist.html" class="nav-link">
+        <Link to='/wishlist' class="nav-link">
             <i class="fa-regular fa-heart font-size-2pt6"></i>
-        </a>
-        <a href="./cart/cart.html" class="nav-link">
+        </Link>
+        <Link to='/cart' class="nav-link">
             <i class="fas fa-shopping-cart font-size-2pt6"></i>
-        </a>
+        </Link>
     </nav>
 
 }
