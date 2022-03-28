@@ -26,12 +26,7 @@ const CartProductCard = () => {
               </div>
           </div>
       </div>
-    )}
-
-
-   
-
- 
+    )} 
 }
 
 export {CartProductCard}

@@ -7,10 +7,6 @@ const Wishlist = () => {
         <Navigation />
     <div className="wishlist-container disp-grid p-rl-6">
         <WishlistProductCard />
-        <WishlistProductCard />
-        <WishlistProductCard />
-        <WishlistProductCard />
-        <WishlistProductCard />
     </div>
     </div>
 }

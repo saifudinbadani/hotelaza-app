@@ -25,7 +25,7 @@ const Product = () => {
             return  <div className="card-h display-flex" key={item._id}>
                        <div className="card-img-h pos-rltv">
                              <img src={item.img} alt="Dining"/>
-                             <i className="card-dismiss fa-regular fa-heart" onClick={() => console.log('wishlist')}></i>
+                             <i className="card-dismiss fa-regular fa-heart" onClick={() => cartDispatch({type: 'ADD_TO_WISHLIST', payload: item})}></i>
                              <div className="badge-container pos-absolute">
                                  <span className="badge-primary">{item.starRating} <i className="fa-solid fa-star"></i>
                                  </span>
