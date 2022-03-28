@@ -6,7 +6,7 @@ import { Product } from '../components/Product/Products';
 const ProductListing = () => {
     return <div className='home-page-body bg-clr'>
         <Navigation />
-        <div class="main-aside-wrapper disp-grid">
+        <div className="main-aside-wrapper disp-grid">
             <Filter/>
             <Product />
         </div>

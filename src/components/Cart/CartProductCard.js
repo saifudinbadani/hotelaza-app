@@ -8,21 +8,21 @@ const CartProductCard = () => {
    const { cart } = cartState;
    
      { return cart.map((item) => 
-         <div class="card-h display-flex">
-        <div class="card-img-h pos-rltv">
+         <div className="card-h display-flex">
+        <div className="card-img-h pos-rltv">
               <img src={item.img} alt="Dining"/>
-              <i class="card-dismiss fa-regular fa-heart"></i>
-              <div class="badge-container pos-absolute">
-                  <span class="badge-primary">{item.starRating}<i class="fa-solid fa-star"></i>
+              <i className="card-dismiss fa-regular fa-heart"></i>
+              <div className="badge-container pos-absolute">
+                  <span className="badge-primary">{item.starRating}<i className="fa-solid fa-star"></i>
                   </span>
               </div>
           </div>
-          <div class="card-content-h display-flex-c">
-             <h3 class="card-title heading-4 fw-regular">{item.title}</h3>
-              <small class="card-author heading-5">{item.description}</small>
-              <p class="text-black heading-4 fw-bold">${item.price}</p>
-             <div class="card-footer-h">
-                  <button class="card-btn btn btn-solid-primary font-size-1pt4 width-100pcnt" onClick={() => cartDispatch({type: 'REMOVE_FROM_CART', payload: item})}>Remove from Cart</button>
+          <div className="card-content-h display-flex-c">
+             <h3 className="card-title heading-4 fw-regular">{item.title}</h3>
+              <small className="card-author heading-5">{item.description}</small>
+              <p className="text-black heading-4 fw-bold">${item.price}</p>
+             <div className="card-footer-h">
+                  <button className="card-btn btn btn-solid-primary font-size-1pt4 width-100pcnt" onClick={() => cartDispatch({type: 'REMOVE_FROM_CART', payload: item})}>Remove from Cart</button>
               </div>
           </div>
       </div>

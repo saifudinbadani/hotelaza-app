@@ -5,7 +5,7 @@ import { Navigation } from '../components/Navigation';
 const Wishlist = () => {
     return <div className='home-page-body bg-clr'>
         <Navigation />
-    <div class="wishlist-container disp-grid p-rl-6">
+    <div className="wishlist-container disp-grid p-rl-6">
         <WishlistProductCard />
         <WishlistProductCard />
         <WishlistProductCard />
