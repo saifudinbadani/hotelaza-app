@@ -1,13 +1,18 @@
 import '../../css/product-listing.css';
 import { products } from '../../backend/db/products';
 import { useFilter } from '../../context/filterContext';
+import { useCart } from '../../context/CartContext';
 
 const Product = () => {
+    
+    const { cartDispatch } = useCart();
+
     const {state, categoryFn, ratingFilterFn, sortingFn} = useFilter();
 
     const categoryFilteredData = categoryFn(state, products);
     const ratingFilteredData = ratingFilterFn(state, categoryFilteredData)
     const sortedData = sortingFn(state, ratingFilteredData)
+    
 
     return <main class="products-listing-container p-rl-6">
     <h4 class="heading-4 m-t-1">
@@ -31,7 +36,7 @@ const Product = () => {
                              <small class="card-author heading-5">{item.description}</small>
                              <p class="text-black heading-4 fw-bold">${item.price}</p>
                             <div class="card-footer-h">
-                                 <button class="card-btn btn btn-solid-primary font-size-1pt4 width-100pcnt">Add to
+                                 <button class="card-btn btn btn-solid-primary font-size-1pt4 width-100pcnt" onClick={() => cartDispatch({type: 'ADD_TO_CART', payload: item })}>Add to
                                     Cart</button>
                              </div>
                          </div>

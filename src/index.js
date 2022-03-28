@@ -9,6 +9,7 @@ import {
   Routes,
   Route } from "react-router-dom";
 import { FilterProvider } from './context/filterContext';
+import { CartProvider } from './context/CartContext';
 
 
 // Call make Server
@@ -18,6 +19,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <FilterProvider>
+      <CartProvider>
         <App />
       <Routes>
         <Route path="/" element={<HomePage/>}/>
@@ -27,6 +29,7 @@ ReactDOM.render(
         <Route path="/cart" element={<Cart />}/>
         <Route path="/wishlist" element={<Wishlist />}/>
       </Routes>
+      </CartProvider> 
       </FilterProvider>
     </Router>
   </React.StrictMode>,

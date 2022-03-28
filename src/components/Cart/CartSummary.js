@@ -1,6 +1,8 @@
 import '../../css/cart.css';
+import { useCart } from '../../context/CartContext';
 
 const CartSummary = () => {
+    const { cartState } = useCart();
     return <div class="cart-details-card">
     <div class="card display-flex-c  p-rl-1 width-40">
         <div class="card-content display-flex-c">
@@ -8,8 +10,8 @@ const CartSummary = () => {
             <hr/>
             <div class="cart-items-details">
                 <div class="display-flex justify-content-spce-btwn m-t-1">
-                    <p class="heading-4"> Price (<span class="cart-items-qty heading-4">2 </span>items)</p>
-                    <p class="heading-4">$<span class="cart-items-price heading-4">260</span></p>
+                    <p class="heading-4"> Price (<span class="cart-items-qty heading-4">{cartState.totalQty} </span>items)</p>
+                    <p class="heading-4">$<span class="cart-items-price heading-4">{cartState.totalPrice}</span></p>
                 </div>
         
                 <div class="display-flex justify-content-spce-btwn m-t-1">
@@ -19,7 +21,7 @@ const CartSummary = () => {
                 <hr/>
                 <div class="display-flex justify-content-spce-btwn m-t-1">
                     <p class="heading-4 fw-bold"> Total Amount</p>
-                    <p class="heading-4">$<span class="cart-items-total-amnt heading-4">260</span></p>
+                    <p class="heading-4">$<span class="cart-items-total-amnt heading-4">{cartState.totalPrice}</span></p>
                 </div>
             </div>
           
