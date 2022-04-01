@@ -2,6 +2,16 @@
 const filterReducer = (state, action) => {
   const { type } = action;
   switch (type) {
+    case "CLEAR_ALL":
+      return {
+        dining: false,
+        holiday: false,
+        rooms: false,
+        spa: false,
+        starRating: '',
+        sortBy: '',
+        priceRange: 5000,
+    }
     case "DINING":
       return { ...state, dining: !state.dining };
     case "HOLIDAY":
@@ -9,7 +19,7 @@ const filterReducer = (state, action) => {
       case "ROOMS":
       return { ...state, rooms: !state.rooms };
       case "SPA":
-      return { ...state, holiday: !state.spa };
+      return { ...state, spa: !state.spa };
       case "FOURSTARS":
       return {...state, starRating: "FOURSTARS"}
       case "THREESTARS":
@@ -25,7 +35,9 @@ const filterReducer = (state, action) => {
       case "ratingLowToHigh":
       return {...state, sortBy: "ratingLowToHigh"}
       case "ratingHighToLow":
-      return {...state, sortBy: "ratingHighToLow"}  
+      return {...state, sortBy: "ratingHighToLow"}
+      case "PRICE_RANGE":
+        return {...state, priceRange: action.payload }  
                    
     default:
       return state;

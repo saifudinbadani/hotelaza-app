@@ -7,9 +7,10 @@ const Product = () => {
     
     const { cartDispatch } = useCart();
 
-    const {state, categoryFn, ratingFilterFn, sortingFn} = useFilter();
+    const {state, categoryFn, ratingFilterFn, sortingFn, priceRangeFn } = useFilter();
 
-    const categoryFilteredData = categoryFn(state, products);
+    const priceRangeFilteredData = priceRangeFn(state, products);
+    const categoryFilteredData = categoryFn(state, priceRangeFilteredData);
     const ratingFilteredData = ratingFilterFn(state, categoryFilteredData)
     const sortedData = sortingFn(state, ratingFilteredData)
     
@@ -17,7 +18,7 @@ const Product = () => {
     return <main className="products-listing-container p-rl-6">
     <h4 className="heading-4 m-t-1">
         Showing Products 
-        <span className="font-size-1pt4 clr-text-on-white"> ( showing <span className="products-card-count font-size-1pt4 clr-text-on-white"> 20 </span>
+        <span className="font-size-1pt4 clr-text-on-white"> ( showing <span className="products-card-count font-size-1pt4 clr-text-on-white"> {sortedData.length} </span>
             products )</span>
     </h4>
     <div className="products-card-container display-flex">

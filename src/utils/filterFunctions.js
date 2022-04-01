@@ -73,4 +73,8 @@
       return data
   }
 
-  export { categoryFn, ratingFilterFn, sortingFn }
+  const priceRangeFn = (state, data) => {
+    return [...data].filter((item) => item.price <= state.priceRange )
+  }
+
+  export { categoryFn, ratingFilterFn, sortingFn, priceRangeFn }

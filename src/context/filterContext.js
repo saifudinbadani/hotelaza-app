@@ -1,5 +1,5 @@
 import { useContext, createContext, useReducer } from "react";
-import { categoryFn, ratingFilterFn, sortingFn } from "../utils/filterFunctions";
+import { categoryFn, ratingFilterFn, sortingFn, priceRangeFn } from "../utils/filterFunctions";
 import { filterReducer } from "../reducer/filterReducer";
 
 const filterContext = createContext();
@@ -11,14 +11,12 @@ const FilterProvider = ({children}) => {
         holiday: false,
         rooms: false,
         spa: false,
-        fourStars: false,
-        threeStars: false,
-        twoStars: false,
-        oneStar: false,
-        sortBy: ''
+        starRating: '',
+        sortBy: '',
+        priceRange: 5000,
     } );
     
-    return <filterContext.Provider value={{state, dispatch, categoryFn, ratingFilterFn, sortingFn}}>
+    return <filterContext.Provider value={{state, dispatch, categoryFn, ratingFilterFn, sortingFn, priceRangeFn}}>
         {children}
     </filterContext.Provider>
 }
