@@ -20,7 +20,7 @@ const WishlistProductCard = () => {
           <small className="card-author heading-5">{item.description}</small>
           <p className="text-black heading-4 fw-bold">${item.price}</p>
          <div className="card-footer-h">
-              <button className="card-btn btn btn-solid-primary font-size-1pt4 width-100pcnt" onClick={() => cartDispatch({type: 'REMOVE_FROM_CART', payload: item})}>Add to
+              <button className="card-btn btn btn-solid-primary font-size-1pt4 width-100pcnt" onClick={() => cartDispatch({type: 'ADD_TO_CART', payload: item})}>Add to
                  Cart</button>
           </div>
       </div>
