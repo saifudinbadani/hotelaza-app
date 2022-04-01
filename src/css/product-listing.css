@@ -38,3 +38,13 @@
 .fa-star{
     font-size: 1.5rem;
 }
+
+.btn-clear{
+    border: none;
+    background-color: var(--bg-clr);
+    cursor: pointer;
+}
+
+.btn-clear:hover{
+    text-decoration: underline;
+}

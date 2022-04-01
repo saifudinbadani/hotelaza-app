@@ -1,5 +1,4 @@
 import '../../css/wishlist.css';
-import categoryRoom from '../../assets/categories/room-cat.jpg';
 import { useCart } from '../../context/CartContext';
 
 const WishlistProductCard = () => {
