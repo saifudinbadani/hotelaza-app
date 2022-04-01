@@ -2,5 +2,9 @@
 
 .wishlist-container{
     margin-top: 6rem;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.wishlist-selected{
+    color: var(--red-500);
 }
