@@ -1,9 +1,12 @@
 import '../css/nav.css';
 import { Link } from 'react-router-dom';
+import { useFilter } from '../context/filterContext';
 
 const Navigation = () => {
+    const { dispatch} = useFilter();
+
     return  <nav className="nav-container display-flex primary-clr p-rl-6">
-        <Link to='/' className="nav-link font-size-2pt6">Hotelaza</Link>
+        <Link to='/' className="nav-link font-size-2pt6" onClick={() => dispatch({type: 'CLEAR_ALL'})}>Hotelaza</Link>
         <div className="input-search pos-rltv m-rght-auto">
             <i className="fa-solid fa-magnifying-glass pos-absolute font-size-2pt6"></i>
             <input type="text" placeholder="search" className="nav-input-search"/>

@@ -18,7 +18,7 @@ export const addToCart = (cartState, action) => {
     }
 }
 
-export const  removeFromCart = (cartState, action) => {
+export const removeFromCart = (cartState, action) => {
    
         return {
             ...cartState,
