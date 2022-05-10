@@ -46,3 +46,7 @@
 .homepage-footer{
     grid-area: footer;
 }
+
+.pageNotFound{
+    justify-content: center;
+}

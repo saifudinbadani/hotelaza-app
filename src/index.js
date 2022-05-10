@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import { HomePage, ProductListing, Login, Signup, Cart, Wishlist  } from "./pages/index";
+import { HomePage, ProductListing, Login, Signup, Cart, Wishlist, PageNotFound  } from "./pages/index";
 import { makeServer } from "./server";
 import { 
   BrowserRouter as Router,
@@ -10,6 +10,7 @@ import {
   Route } from "react-router-dom";
 import { FilterProvider } from './context/filterContext';
 import { CartProvider } from './context/CartContext';
+
 
 
 // Call make Server
@@ -29,6 +30,7 @@ ReactDOM.render(
         <Route path="/signup" element={<Signup />}/>
         <Route path="/cart" element={<Cart />}/>
         <Route path="/wishlist" element={<Wishlist />}/>
+        <Route path="*" element={<PageNotFound />}/>
       </Routes>
       </CartProvider> 
       </FilterProvider>
