@@ -4,7 +4,7 @@ import categoryDining from '../../assets/categories/dining-cat.jpg';
 import categoryHoliday from '../../assets/categories/holiday-cat.jpg';
 import categorySpa from '../../assets/categories/spa-cat.jpg';
 import { useFilter } from '../../context/filterContext';
-import { navigate, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 
 

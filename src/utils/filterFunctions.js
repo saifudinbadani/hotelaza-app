@@ -58,16 +58,16 @@
 
   const sortingFn = (state, data) => {
       
-      if(state.sortBy == 'priceLowToHigh'){
+      if(state.sortBy === 'priceLowToHigh'){
         return [...data].sort((a, b) => a.price - b.price);
       }
-      if(state.sortBy == 'priceHighToLow'){
+      if(state.sortBy === 'priceHighToLow'){
         return [...data].sort((a, b) => b.price - a.price);
       }
-      if(state.sortBy == 'ratingLowToHigh'){
+      if(state.sortBy === 'ratingLowToHigh'){
         return [...data].sort((a, b) => a.starRating - b.starRating);
       }
-      if(state.sortBy == 'ratingHighToLow'){
+      if(state.sortBy === 'ratingHighToLow'){
         return [...data].sort((a, b) => b.starRating - a.starRating);
       }
       return data
