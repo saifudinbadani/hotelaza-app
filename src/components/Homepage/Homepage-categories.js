@@ -17,8 +17,9 @@ const HomePageCategories = () => {
     const navigateCategories = () => {
        if(isLoggedIn){
            navigate('/productlist')
+       } else{
+           navigate('/login')
        }
-       navigate('/login')
     }
     return  <div className="homepage-cat p-rl-6 pos-rltv display-flex m-t-8">
    
