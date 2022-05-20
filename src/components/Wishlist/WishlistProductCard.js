@@ -1,14 +1,23 @@
 import '../../css/wishlist.css';
 import { useCart } from '../../context/CartContext';
+import { useAuth } from '../../context/AuthContext';
+import { removeFromWishlistApiCall } from '../../utils/wishlistFunctions';
 
 const WishlistProductCard = () => {
+    const { initialAuth : { token }} = useAuth();
     const { cartDispatch, cartState } = useCart();
     const { wishlist } = cartState;
+    const removeFromWishlist = async (id) => {
+
+        const response = await removeFromWishlistApiCall(id, token)
+        cartDispatch({type: 'HANDLE_WISHLIST', payload: response})
+    }
+
     {return wishlist.map((item) => 
      <div className="card-h display-flex">
     <div className="card-img-h pos-rltv">
           <img src={item.img} alt="Dining"/>
-          <i className="card-dismiss wishlist-selected fas fa-heart" onClick={() => cartDispatch({type: 'REMOVE_FROM_WISHLIST', payload: item})}></i>
+          <i className="card-dismiss wishlist-selected fas fa-heart" onClick={() => removeFromWishlist(item._id)}></i>
           <div className="badge-container pos-absolute">
               <span className="badge-primary">{item.starRating} <i className="fa-solid fa-star"></i>
               </span>

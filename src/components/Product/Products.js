@@ -2,6 +2,7 @@ import '../../css/product-listing.css';
 import { useFilter } from '../../context/filterContext';
 import { useCart } from '../../context/CartContext';
 import { addToCartApiCall } from '../../utils/cartFunctions';
+import { addToWishlistApiCall } from '../../utils/wishlistFunctions';
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -17,12 +18,15 @@ const Product = () => {
     const sortedData = sortingFn(state, ratingFilteredData)
     
     const addToCartFn = async (item) => {
-
         const response = await addToCartApiCall(item, token)
-        console.log(cart)
         if(response){
             cartDispatch({type: 'HANDLE_CART', payload: response })
         }
+    }
+
+    const addToWishlist = async (item) => {
+        const response  = await addToWishlistApiCall(item, token)
+        cartDispatch({type: 'HANDLE_WISHLIST', payload: response })
     }
     return <main className="products-listing-container p-rl-6">
     <h4 className="heading-4 m-t-1">
@@ -37,7 +41,7 @@ const Product = () => {
             return  <div className="card-h display-flex" key={item._id}>
                        <div className="card-img-h pos-rltv">
                              <img src={item.img} alt="Dining"/>
-                             <i className="card-dismiss fa-regular fa-heart" onClick={() => cartDispatch({type: 'ADD_TO_WISHLIST', payload: item})}></i>
+                             <i className="card-dismiss fa-regular fa-heart" onClick={() => addToWishlist(item)}></i>
                              <div className="badge-container pos-absolute">
                                  <span className="badge-primary">{item.starRating} <i className="fa-solid fa-star"></i>
                                  </span>

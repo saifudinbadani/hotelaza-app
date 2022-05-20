@@ -1,7 +1,4 @@
 
-import { addToWishlist, removeFromWishlist } from '../utils/wishlistFunctions';
-
-
 const cartReducer = (cartState, action) => {
     
     switch (action.type) {
@@ -9,10 +6,8 @@ const cartReducer = (cartState, action) => {
             return {...cartState, products: action.payload}
         case 'HANDLE_CART':
              return {...cartState, cart: [...action.payload ]}
-        case 'ADD_TO_WISHLIST':
-            return  addToWishlist(cartState, action) 
-        case 'REMOVE_FROM_WISHLIST':
-            return removeFromWishlist(cartState, action)            
+        case 'HANDLE_WISHLIST':
+            return  {...cartState, wishlist: [...action.payload]}      
             default:
                 return cartState;
     }

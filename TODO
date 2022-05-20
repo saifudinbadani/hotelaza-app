@@ -1,5 +1,7 @@
 
 Todo:
   ☐ Cart qty should not go less than 0.
+  ☐ Add GetApi call of cart and wishlist on app initial load...
+  ☐ Why request body is put before authorization in api call....
   ☐ Location save to navigate to same location after login.
   ☐ 
