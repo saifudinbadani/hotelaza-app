@@ -3,8 +3,10 @@ import { useFilter } from '../../context/filterContext';
 import { useCart } from '../../context/CartContext';
 import { addToCartApiCall } from '../../utils/cartFunctions';
 import { useAuth } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Product = () => {
+    const navigate = useNavigate();
     const { cartState: { products, cart },cartDispatch } = useCart();
     const { initialAuth : { token }} = useAuth();
     const {state, categoryFn, ratingFilterFn, sortingFn, priceRangeFn } = useFilter();
@@ -47,7 +49,7 @@ const Product = () => {
                              <small className="card-author heading-5">{item.description}</small>
                              <p className="text-black heading-4 fw-bold">${item.price}</p>
                             <div className="card-footer-h">
-                                {cart.find( i => i._id === item._id) ? <button className="card-btn btn btn-solid-primary font-size-1pt4 width-100pcnt">Go to Cart</button> :  <button className="card-btn btn btn-solid-primary font-size-1pt4 width-100pcnt" onClick={() => addToCartFn(item)}>Add to
+                                {cart.find( i => i._id === item._id) ? <button className="card-btn btn btn-solid-primary font-size-1pt4 width-100pcnt" onClick={() => navigate('/cart')}>Go to Cart</button> :  <button className="card-btn btn btn-solid-primary font-size-1pt4 width-100pcnt" onClick={() => addToCartFn(item)}>Add to
                                     Cart</button>}
                                  
                              </div>
