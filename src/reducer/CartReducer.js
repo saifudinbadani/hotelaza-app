@@ -1,6 +1,6 @@
 
 
-import { removeFromCart, cartQtyHandler } from '../utils/cartFunctions';
+import { cartQtyHandler } from '../utils/cartFunctions';
 import { addToWishlist, removeFromWishlist } from '../utils/wishlistFunctions';
 
 
@@ -9,11 +9,8 @@ const cartReducer = (cartState, action) => {
     switch (action.type) {
         case 'LOAD_PRODUCTS':
             return {...cartState, products: action.payload}
-        case 'ADD_TO_CART':
+        case 'HANDLE_CART':
              return {...cartState, cart: [...action.payload ]}
-            //  return addToCart(cartState, action)
-        case 'REMOVE_FROM_CART':
-            return removeFromCart(cartState, action)
         case 'ADD_TO_WISHLIST':
             return  addToWishlist(cartState, action) 
         case 'REMOVE_FROM_WISHLIST':

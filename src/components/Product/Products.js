@@ -20,7 +20,7 @@ const Product = () => {
 
         if(response){
             console.log(cart)
-            cartDispatch({type: 'ADD_TO_CART', payload: response })
+            cartDispatch({type: 'HANDLE_CART', payload: response })
         }
     }
     return <main className="products-listing-container p-rl-6">
