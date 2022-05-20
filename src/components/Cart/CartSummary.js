@@ -5,8 +5,8 @@ const CartSummary = () => {
     const { cartState } = useCart();
     const { cart } = cartState;
 
-    const totalPrice= cart.reduce((acc,curr)=>acc+curr.price*curr.itemQty,0)
-    const totalQty = cart.reduce((acc, curr) => acc + curr.itemQty, 0)
+    const totalPrice= cart.reduce((acc,curr)=>acc+curr.price*curr.qty,0)
+    const totalQty = cart.reduce((acc, curr) => acc + curr.qty, 0)
 
     
 

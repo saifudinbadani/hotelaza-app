@@ -14,7 +14,6 @@ const Filter = () => {
     priceRange
 } =  state 
     
-console.log({starRating})
 
     return  <aside className="side-container p-rl-1">
     <div className="filter-link display-flex justify-content-spce-btwn align-items-cntr m-t-1">

@@ -3,8 +3,10 @@ import { useFilter } from '../../context/filterContext';
 import { useCart } from '../../context/CartContext';
 import { addToCartApiCall } from '../../utils/cartFunctions';
 import { useAuth } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Product = () => {
+    const navigate = useNavigate();
     const { cartState: { products, cart },cartDispatch } = useCart();
     const { initialAuth : { token }} = useAuth();
     const {state, categoryFn, ratingFilterFn, sortingFn, priceRangeFn } = useFilter();
@@ -17,10 +19,9 @@ const Product = () => {
     const addToCartFn = async (item) => {
 
         const response = await addToCartApiCall(item, token)
-
+        console.log(cart)
         if(response){
-            console.log(cart)
-            cartDispatch({type: 'ADD_TO_CART', payload: response })
+            cartDispatch({type: 'HANDLE_CART', payload: response })
         }
     }
     return <main className="products-listing-container p-rl-6">
@@ -47,7 +48,7 @@ const Product = () => {
                              <small className="card-author heading-5">{item.description}</small>
                              <p className="text-black heading-4 fw-bold">${item.price}</p>
                             <div className="card-footer-h">
-                                {cart.find( i => i._id === item._id) ? <button className="card-btn btn btn-solid-primary font-size-1pt4 width-100pcnt">Go to Cart</button> :  <button className="card-btn btn btn-solid-primary font-size-1pt4 width-100pcnt" onClick={() => addToCartFn(item)}>Add to
+                                {cart.find( i => i._id === item._id) ? <button className="card-btn btn btn-solid-primary font-size-1pt4 width-100pcnt" onClick={() => navigate('/cart')}>Go to Cart</button> :  <button className="card-btn btn btn-solid-primary font-size-1pt4 width-100pcnt" onClick={() => addToCartFn(item)}>Add to
                                     Cart</button>}
                                  
                              </div>
