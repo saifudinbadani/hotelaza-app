@@ -19,9 +19,8 @@ const Product = () => {
     const addToCartFn = async (item) => {
 
         const response = await addToCartApiCall(item, token)
-
+        console.log(cart)
         if(response){
-            console.log(cart)
             cartDispatch({type: 'HANDLE_CART', payload: response })
         }
     }
