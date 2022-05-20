@@ -1,13 +1,17 @@
 
-import { addToCart, removeFromCart, cartQtyHandler } from '../utils/cartFunctions';
+
+import { removeFromCart, cartQtyHandler } from '../utils/cartFunctions';
 import { addToWishlist, removeFromWishlist } from '../utils/wishlistFunctions';
 
 
 const cartReducer = (cartState, action) => {
     
     switch (action.type) {
+        case 'LOAD_PRODUCTS':
+            return {...cartState, products: action.payload}
         case 'ADD_TO_CART':
-             return addToCart(cartState, action)
+             return {...cartState, cart: [...action.payload ]}
+            //  return addToCart(cartState, action)
         case 'REMOVE_FROM_CART':
             return removeFromCart(cartState, action)
         case 'ADD_TO_WISHLIST':

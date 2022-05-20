@@ -1,12 +1,12 @@
 import '../../css/product-listing.css';
-import { products } from '../../backend/db/products';
 import { useFilter } from '../../context/filterContext';
 import { useCart } from '../../context/CartContext';
+import { addToCartApiCall } from '../../utils/cartFunctions';
+import { useAuth } from '../../context/AuthContext';
 
 const Product = () => {
-    
-    const { cartDispatch } = useCart();
-
+    const { cartState: { products, cart },cartDispatch } = useCart();
+    const { initialAuth : { token }} = useAuth();
     const {state, categoryFn, ratingFilterFn, sortingFn, priceRangeFn } = useFilter();
 
     const priceRangeFilteredData = priceRangeFn(state, products);
@@ -14,7 +14,15 @@ const Product = () => {
     const ratingFilteredData = ratingFilterFn(state, categoryFilteredData)
     const sortedData = sortingFn(state, ratingFilteredData)
     
+    const addToCartFn = async (item) => {
 
+        const response = await addToCartApiCall(item, token)
+
+        if(response){
+            console.log(cart)
+            cartDispatch({type: 'ADD_TO_CART', payload: response })
+        }
+    }
     return <main className="products-listing-container p-rl-6">
     <h4 className="heading-4 m-t-1">
         Showing Products 
@@ -22,6 +30,8 @@ const Product = () => {
             products )</span>
     </h4>
     <div className="products-card-container display-flex">
+        
+
         {sortedData.map(item => {
             return  <div className="card-h display-flex" key={item._id}>
                        <div className="card-img-h pos-rltv">
@@ -37,8 +47,9 @@ const Product = () => {
                              <small className="card-author heading-5">{item.description}</small>
                              <p className="text-black heading-4 fw-bold">${item.price}</p>
                             <div className="card-footer-h">
-                                 <button className="card-btn btn btn-solid-primary font-size-1pt4 width-100pcnt" onClick={() => cartDispatch({type: 'ADD_TO_CART', payload: item })}>Add to
-                                    Cart</button>
+                                {cart.find( i => i._id === item._id) ? <button className="card-btn btn btn-solid-primary font-size-1pt4 width-100pcnt">Go to Cart</button> :  <button className="card-btn btn btn-solid-primary font-size-1pt4 width-100pcnt" onClick={() => addToCartFn(item)}>Add to
+                                    Cart</button>}
+                                 
                              </div>
                          </div>
                      </div>
