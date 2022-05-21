@@ -1,29 +1,37 @@
 import '../../css/cart.css';
+import '../../css/wishlist.css';
 import { useCart } from '../../context/CartContext';
 import { removeFromCartApiCall, cartQtyHandlerApiCall } from '../../utils/cartFunctions';
 import { useAuth } from '../../context/AuthContext';
+import { addToWishlistApiCall, removeFromWishlistApiCall } from '../../utils/wishlistFunctions';
 
 
 const CartProductCard = () => {
    const { cartState, cartDispatch } = useCart();
-   const { cart } = cartState;
+   const { cart, wishlist } = cartState;
    const { initialAuth : { token }} = useAuth();
    const removeFromCart = async (id) => {
-        const response = await removeFromCartApiCall(id, token)
-        cartDispatch({type: 'HANDLE_CART', payload: response})
+    const response = await removeFromCartApiCall(id, token)
+    cartDispatch({type: 'HANDLE_CART', payload: response})
    }
 
    const cartQtyHandler = async (id, cartAction) => {
-
         const response = await cartQtyHandlerApiCall(id, token, cartAction)
         cartDispatch({type: 'HANDLE_CART', payload: response})
    }
 
-     { return cart.map((item) => 
+    const addToWishlist = async (item)  => {
+        const response = await addToWishlistApiCall(item, token)
+        cartDispatch({type: 'HANDLE_WISHLIST', payload: response})
+        const cartResponse = await removeFromCartApiCall(item._id, token)
+        cartDispatch({type: 'HANDLE_CART', payload: cartResponse})
+    }
+      return cart.map((item) => 
          <div className="card-h display-flex" key={item._id}>
         <div className="card-img-h pos-rltv">
               <img src={item.img} alt="Dining"/>
-              <i className="card-dismiss fa-regular fa-heart" onClick={() => cartDispatch({type: "ADD_TO_WISHLIST", payload: item})}></i>
+              {wishlist.find(i => i._id === item._id) ? <i className="card-dismiss wishlist-selected fas fa-heart"></i>:<i className="card-dismiss fa-regular fa-heart" onClick={() => addToWishlist(item)}></i>}
+               
               <div className="badge-container pos-absolute">
                   <span className="badge-primary">{item.starRating}<i className="fa-solid fa-star"></i>
                   </span>
@@ -40,6 +48,6 @@ const CartProductCard = () => {
           </div>
       </div>
     )} 
-}
+
 
 export {CartProductCard}
