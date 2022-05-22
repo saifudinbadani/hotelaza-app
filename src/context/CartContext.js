@@ -33,6 +33,7 @@ const CartProvider = ({
     useEffect(() => {
         const fetchData = async () => {
             const products = await GetProductApiCall();
+            console.log(products)
             cartDispatch({
                 type: 'LOAD_PRODUCTS',
                 payload: products

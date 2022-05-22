@@ -2,6 +2,7 @@
 import axios from 'axios';
 
 
+
 export const getCartApiCall = async (encodedToken) => {
     try {
         const response = await axios.get('/api/user/cart', {
@@ -19,6 +20,7 @@ export const getCartApiCall = async (encodedToken) => {
     }
 }
 
+//  add product state,  and fire increment api if product already in cart..
 export const addToCartApiCall = async (product, encodedToken) => {
 
     try {
@@ -54,6 +56,7 @@ export const removeFromCartApiCall = async (id, encodedToken) => {
         console.log(error)
     }
 }
+
 
 export const cartQtyHandlerApiCall = async (id, encodedToken, cartAction) => {
 
