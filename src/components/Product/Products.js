@@ -1,14 +1,15 @@
 import '../../css/product-listing.css';
+import '../../css/wishlist.css';
 import { useFilter } from '../../context/filterContext';
 import { useCart } from '../../context/CartContext';
 import { addToCartApiCall } from '../../utils/cartFunctions';
-import { addToWishlistApiCall } from '../../utils/wishlistFunctions';
+import { addToWishlistApiCall, removeFromWishlistApiCall } from '../../utils/wishlistFunctions';
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const Product = () => {
     const navigate = useNavigate();
-    const { cartState: { products, cart },cartDispatch } = useCart();
+    const { cartState: { products, cart, wishlist },cartDispatch } = useCart();
     const { initialAuth : { token }} = useAuth();
     const {state, categoryFn, ratingFilterFn, sortingFn, priceRangeFn } = useFilter();
 
@@ -18,7 +19,7 @@ const Product = () => {
     const sortedData = sortingFn(state, ratingFilteredData)
     
     const addToCartFn = async (item) => {
-        const response = await addToCartApiCall(item, token)
+        const response = await addToCartApiCall(item, token, cart)
         if(response){
             cartDispatch({type: 'HANDLE_CART', payload: response })
         }
@@ -26,6 +27,11 @@ const Product = () => {
 
     const addToWishlist = async (item) => {
         const response  = await addToWishlistApiCall(item, token)
+        cartDispatch({type: 'HANDLE_WISHLIST', payload: response })
+    }
+
+    const removeFromWishlist = async (id) => {
+        const response = await removeFromWishlistApiCall(id, token)
         cartDispatch({type: 'HANDLE_WISHLIST', payload: response })
     }
     return <main className="products-listing-container p-rl-6">
@@ -41,7 +47,8 @@ const Product = () => {
             return  <div className="card-h display-flex" key={item._id}>
                        <div className="card-img-h pos-rltv">
                              <img src={item.img} alt="Dining"/>
-                             <i className="card-dismiss fa-regular fa-heart" onClick={() => addToWishlist(item)}></i>
+                             {wishlist.find(i => i._id ===item._id) ? <i className="card-dismiss wishlist-selected fas fa-heart" onClick={() => removeFromWishlist(item._id)}></i> :<i className="card-dismiss fa-regular fa-heart" onClick={() => addToWishlist(item)}></i>}
+                             
                              <div className="badge-container pos-absolute">
                                  <span className="badge-primary">{item.starRating} <i className="fa-solid fa-star"></i>
                                  </span>

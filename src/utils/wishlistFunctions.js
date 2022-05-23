@@ -1,4 +1,4 @@
-import { products } from "../backend/db/products";
+
 import axios from 'axios';
 
 
@@ -56,28 +56,28 @@ export const removeFromWishlistApiCall = async (id, encodedToken) => {
 
 
 
-export const addToWishlist = (cartState, action) => {
-    if (cartState.wishlist.includes(action.payload)) {
-        return {
-            ...cartState,
-            wishlist: [...cartState.wishlist]
-        }
-    } else {
-        return {
-            ...cartState,
-            wishlist: [...cartState.wishlist, ...products.filter(item => {
-                return action.payload._id === item._id
-            })]
-        }
-    }
-}
+// export const addToWishlist = (cartState, action) => {
+//     if (cartState.wishlist.includes(action.payload)) {
+//         return {
+//             ...cartState,
+//             wishlist: [...cartState.wishlist]
+//         }
+//     } else {
+//         return {
+//             ...cartState,
+//             wishlist: [...cartState.wishlist, ...products.filter(item => {
+//                 return action.payload._id === item._id
+//             })]
+//         }
+//     }
+// }
 
-export const  removeFromWishlist = (cartState, action) => {
+// export const  removeFromWishlist = (cartState, action) => {
    
-    return {
-        ...cartState,
-        wishlist: [...cartState.wishlist.filter(item => {
-            return action.payload._id !== item._id
-        })]
-    }
-}
+//     return {
+//         ...cartState,
+//         wishlist: [...cartState.wishlist.filter(item => {
+//             return action.payload._id !== item._id
+//         })]
+//     }
+// }

@@ -32,9 +32,6 @@ const Login = () => {
      if(respData){
          setInitialAuth({isLoggedIn: true,
          token: respData.data.encodedToken});
-         localStorage.setItem('token', respData.data.encodedToken)
-         localStorage.setItem('isLoggedIn', true)
-         
          localStorage.setItem('userName', respData.data.foundUser[0]) 
          navigate('/') 
      } 
@@ -46,8 +43,6 @@ const Login = () => {
      if(respData){
          setInitialAuth({isLoggedIn: true,
              token: respData.data.encodedToken});
-         localStorage.setItem('token', respData.data.encodedToken)
-         localStorage.setItem('isLoggedIn', true)
          localStorage.setItem('userName', respData.data.foundUser.firstName) 
          navigate('/')
           }
