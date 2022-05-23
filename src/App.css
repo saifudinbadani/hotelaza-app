@@ -3,6 +3,7 @@
 :root{
     --bg-clr: #e5e5e5;
     --primary-clr: #fca311;
+    --primay-light: #F2B24B;
     --cta-clr: #1154BF;
     --text:rgb(240, 238, 238);
     --text-on-white: #8d8d8d;
@@ -13,6 +14,9 @@
     background-color: var(--primary-clr);
 }
 
+.primary-lght{
+    background-color: var(--primay-light);
+}
 .bg-clr{
     background-color: var(--bg-clr);
 }

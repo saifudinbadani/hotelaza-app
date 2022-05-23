@@ -2,6 +2,7 @@ import "./App.css";
 import { Routes, Route} from 'react-router-dom';
 import { HomePage, ProductListing, Login, Signup, Cart, Wishlist, PageNotFound  } from "./pages/index";
 import { useAuth } from './context/AuthContext';
+import { Footer } from './components/Footer';
 
 
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/wishlist" element={isLoggedIn ?  <Wishlist /> : <Login />}/>
         <Route path="*" element={<PageNotFound />}/>
       </Routes>
+      <Footer />
     </div>
   );
 }

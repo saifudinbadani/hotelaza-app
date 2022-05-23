@@ -1,4 +1,5 @@
 
+
 .input-search {
     margin-left: 20rem;
 }
@@ -18,7 +19,28 @@
 .nav-container > .nav-link-cta{
     color: var(--cta-clr);
 }
-
-.nav-link-cta:hover{
+.nav-container > .nav-link-cta:hover{
+    color: var(--black-500);
+}
+/* .nav-link-cta:hover{
     text-decoration: underline;
+} */
+
+/* footer */
+.footer{
+    align-items: center;
+}
+.footer-title{
+    margin-left: 1rem;
+}
+.footer-icons{
+    padding: 0 0.5rem;
+}
+
+.f-icon:hover{
+    cursor: pointer;
+}
+
+.footer-icons > i:hover {
+    color: var(--black-500);
 }
