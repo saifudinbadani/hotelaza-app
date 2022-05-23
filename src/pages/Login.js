@@ -32,7 +32,7 @@ const Login = () => {
      if(respData){
          setInitialAuth({isLoggedIn: true,
          token: respData.data.encodedToken});
-         localStorage.setItem('userName', respData.data.foundUser[0]) 
+        //  localStorage.setItem('userName', respData.data.foundUser[0]) 
          navigate('/') 
      } 
        

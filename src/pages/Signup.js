@@ -1,38 +1,71 @@
 import '../css/login-signup.css';
+import { useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Navigation } from '../components/Navigation';
 import { Link } from 'react-router-dom';
+import { validateForm } from '../utils/formValidation';
+import { signUpService } from '../utils/AuthFunctions';
+
 
 const Signup = () => {
+    const navigate = useNavigate();
+    const initialState = { firstName: '', email: '', passwordOne: '', passwordTwo:''}    
+    const [formValues, setFormValues] = useState(initialState);
+    const [formErrors, setFormErrors] = useState({});
+    const handleFormChange = (e) => {
+        const {name, value} = e.target
+        setFormValues({...formValues, [name]: value})
+    }
+    
+    const handleFormSubmit = async(e) => {
+        e.preventDefault();
+       setFormErrors(validateForm(formValues)) 
+       
+       if(validateForm(formValues) === false){
+        const response = await signUpService(formValues.email, formValues.passwordOne, formValues.firstName);
+        if(response.errors){
+            setFormErrors(response.errors)
+            return;
+        }
+        navigate('/login')
+       }  
+    }
+
     return <div className='home-page-body bg-clr'>
                 <Navigation />
-                <div className="container">
-            <form id="form" className="form">
+                <div className='container'>
+         <form id="form" className="form" onSubmit={handleFormSubmit}>
              <h3 className="heading-3 txt-align-cntr">Signup</h3>
             <div className="form-control p-1">
-                <label htmlFor="username" className="heading-4">Username</label>
-                <input type="text" id="username" placeholder="Enter username"/>
+                <label htmlFor="firstName" className="heading-4">Username</label>
+                <input type="text" name='firstName' placeholder="Enter username"  value={formValues.firstName} onChange={handleFormChange}/>
+                <small className='err'>{formErrors.username}</small>
             </div>
 
             <div className="form-control p-1">
-                <label htmlFor="username" className="heading-4">Email</label>
-                <input type="text" id="username" placeholder="Enter email"/>
+                <label htmlFor="email" className="heading-4">Email</label>
+                <input  type="text" name='email'  placeholder="Enter email"  value={formValues.email} onChange={handleFormChange}/>
+                <small className='err'>{formErrors.email}</small>
+               
             </div>
 
             <div className="form-control p-1">
                 <label htmlFor="password" className="heading-4">Password</label>
-                <input type="password" id="password" placeholder="Enter password" />
+                <input type="password" name='passwordOne' placeholder="Enter password"   value={formValues.passwordOne} onChange={handleFormChange}/>
+                <small className='err'>{formErrors.passwordOne}</small>
             </div>
 
             <div className="form-control p-1">
                 <label htmlFor="password" className="heading-4">Re-enter Password</label>
-                <input type="password" id="password" placeholder="Re-enter password" />
+                <input type="password"  name='passwordTwo' placeholder="Re-enter password"  value={formValues.passwordTwo} onChange={handleFormChange}/>
+                <small className='err'>{formErrors.passwordTwo}</small>
             </div>
 
             <div className="form-checkbox display-flex p-1">
-                <input type="checkbox" id="terms-conditions" name="terms-conditions"/>
+                <input type="checkbox"  name="terms-conditions" />
                 <label htmlFor="terms-conditions" className="heading-4 m-l-1">I accept all Terms & Conditions</label>
             </div>
-            <button type="submit" className="btn btn-solid-primary">Create New Account</button>
+            <button type="submit" className="btn btn-solid-primary" >Create New Account</button>
             <div className="form-link p-1 display-flex">
                 <Link to='/login' className="new-accnt-link heading-4">
                     Already have an account
@@ -40,7 +73,7 @@ const Signup = () => {
                 </Link>
             </div>
         </form>
-         </div>
+    </div>
      </div>
 }
 
