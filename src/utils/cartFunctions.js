@@ -21,23 +21,27 @@ export const getCartApiCall = async (encodedToken) => {
 }
 
 //  add product state,  and fire increment api if product already in cart..
-export const addToCartApiCall = async (product, encodedToken) => {
-
-    try {
-        const response = await axios.post('/api/user/cart', {
-            product
-        }, {
-            headers: {
-                authorization: encodedToken
+export const addToCartApiCall = async (product, encodedToken, cartState) => {
+    if(!cartState.find( i => i._id === product._id)){
+        try {
+            const response = await axios.post('/api/user/cart', {
+                product
+            }, {
+                headers: {
+                    authorization: encodedToken
+                }
+            })
+    
+            if (response.status === 200 || response.status === 201) {
+                return response.data.cart;
             }
-        })
-
-        if (response.status === 200 || response.status === 201) {
-            return response.data.cart;
+        } catch (error) {
+            console.log(error)
         }
-    } catch (error) {
-        console.log(error)
+    } else{
+        return cartState
     }
+    
 }
 
 export const removeFromCartApiCall = async (id, encodedToken) => {
@@ -57,26 +61,30 @@ export const removeFromCartApiCall = async (id, encodedToken) => {
     }
 }
 
-
-export const cartQtyHandlerApiCall = async (id, encodedToken, cartAction) => {
-
-    try {
-        const response = await axios.post(`/api/user/cart/${id}`, {
-            action: {
-                type: `${cartAction}`
+export const cartQtyHandlerApiCall = async (product, encodedToken, cartAction, cartState) => {
+    if(product.qty >= 1){
+        try {
+            const response = await axios.post(`/api/user/cart/${product._id}`, {
+                action: {
+                    type: `${cartAction}`
+                }
+            },{
+                headers: {
+                    authorization: encodedToken
+                }
+            })
+            if (response.status === 200 || response.status === 201) {
+                return response.data.cart;
             }
-        },{
-            headers: {
-                authorization: encodedToken
-            }
-        })
-        if (response.status === 200 || response.status === 201) {
-            return response.data.cart;
-        }
-
-    } catch (error) {
-        console.log(error)
+    
+        } catch (error) {
+            console.log(error)
+        } 
+    }else{
+        return cartState
     }
+        
+
 }
 
 

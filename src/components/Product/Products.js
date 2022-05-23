@@ -19,7 +19,7 @@ const Product = () => {
     const sortedData = sortingFn(state, ratingFilteredData)
     
     const addToCartFn = async (item) => {
-        const response = await addToCartApiCall(item, token)
+        const response = await addToCartApiCall(item, token, cart)
         if(response){
             cartDispatch({type: 'HANDLE_CART', payload: response })
         }

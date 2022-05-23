@@ -7,14 +7,14 @@ import { addToCartApiCall } from '../../utils/cartFunctions';
 const WishlistProductCard = () => {
     const { initialAuth : { token }} = useAuth();
     const { cartDispatch, cartState } = useCart();
-    const { wishlist } = cartState;
+    const { wishlist, cart } = cartState;
     const removeFromWishlist = async (id) => {
         const response = await removeFromWishlistApiCall(id, token)
         cartDispatch({type: 'HANDLE_WISHLIST', payload: response})
     }
     
     const addToCartFn = async (item) => {
-        const response = await addToCartApiCall(item, token)
+        const response = await addToCartApiCall(item, token, cart)
         if(response){
             cartDispatch({type: 'HANDLE_CART', payload: response })}    
         const wishListResponse = await removeFromWishlistApiCall(item._id, token)
